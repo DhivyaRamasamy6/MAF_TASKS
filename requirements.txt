@@ -1,0 +1,5 @@
+agent_framework
+python-dotenv
+fastapi
+uvicorn
+pydantic
