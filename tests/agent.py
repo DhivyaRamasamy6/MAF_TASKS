@@ -7,8 +7,7 @@ from src.config.settings import client
 agent=Agent(
     name="HelloAgent",
     instructions="You are a friendly assistant.Keep your answers brief.",
-    client=client,
-    
+    client=client, 
 )
 
 async def main():
