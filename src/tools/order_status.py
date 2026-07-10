@@ -1,7 +1,14 @@
 from agent_framework import tool
-@tool(name="order_status",description="Returns the status of an order.")
+from src.common.logger import get_logger
+logger=get_logger(__name__)
+#poor tool schema 
+# @tool(name="status_tool",description="Returns something")
+@tool(name="get_order_status",description="Retrieves the current status of a customer's order using the provided order ID. Use this tool whenever a user asks about tracking an order, delivery status, shipment progress, or order state.")
 def get_order_status(order_id:str)->str:
-    
+    """
+    Retrieves the status of an order based on the order ID.
+    """
+    logger.info("Order_status tool invoked")
     orders ={
         "101":{
             "order_id":"101",

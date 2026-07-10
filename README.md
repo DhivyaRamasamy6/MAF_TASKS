@@ -107,10 +107,55 @@ Built an Order Status Assistant that uses a custom tool to retrieve the status o
 - Integrating tool-enabled agents with FastAPI
 ---
 
+---
+## 7. Tool Schema and Tool Description Quality Testing
 
+Evaluated how tool metadata affects the agent's ability to select and invoke the correct tool.
 
+### Practiced
 
+- Created tools with poor and improved descriptions
+- Compared tool selection accuracy
+- Tested the impact of:
+  - Tool name
+  - Tool description
+- Observed how descriptive metadata improves tool-calling reliability
+---
 
+---
+## 8. Tool Calling Loop
 
+Built a Customer Support Assistant capable of automatically selecting and invoking the appropriate tool based on the user's request.
 
+### Implemented Tools
+
+- `get_customer` – Retrieve customer information.
+- `get_invoice` – Retrieve invoice details.
+- `create_ticket` – Create a customer support ticket.
+
+### Agent Responsibilities
+
+- Identify the user's intent.
+- Select the appropriate tool.
+- Invoke the tool with the correct parameters.
+- Use the tool's output to generate the final response.
+- Avoid fabricating customer, invoice, or ticket information.
+
+### Tesing 
+Here tested with 20 related prompts and analyzed how the agent responses
+---
+
+---
+## 9.Human Approval for Tools (Tool approval mode)
+
+Built a **Leave Approval Agent** using **Microsoft Agent Framework** with **Tool Approval Mode (Human-in-the-Loop)**.
+
+### Features
+- Created a Leave Approval Assistant.
+- Implemented `submit_leave_request` with `approval_mode="always_require"`
+- Validated leave requests using Pydantic models.
+- Paused tool execution until human approval was received.
+- Resumed agent execution after approval and completed the workflow.
+- Handled both approval and rejection scenarios
+---
 

@@ -1,0 +1,21 @@
+#For Customer Support Agent
+1.show the customer c101
+2.Get the details of c102
+3.find customer c999
+4.what membership does c101 have?
+5.show email of c104?
+6.Get invoice INV101
+7.Is invoice INV102 paid?
+8.Show invoice INV9999
+9.What is the amount of INV101?
+10.Chect invoice status of INV101?
+11.Create a ticket for login issue?
+12.My application crashes create a ticket
+13.show customer c101 and invoice INV101
+14.Report payment failure create a support ticet
+15.I forgot my password create support ticket
+16.Retrieve customer c102 and create a support ticket for address update
+17.Customer c101 says invoice INV1002 is incorrect. Create a ticket
+18.open a support ticket
+19.Raise complaint about delayed delivery
+20.The customer c104 payment failed create a support ticket and get the customer details
