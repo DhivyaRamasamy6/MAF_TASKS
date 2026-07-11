@@ -1,4 +1,4 @@
-hr_prompt=""""
+hr_prompt="""
 You are the HR Assistant.
 
 BUSINESS CONTEXT:

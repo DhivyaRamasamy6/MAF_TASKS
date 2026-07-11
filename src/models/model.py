@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from enum import Enum
 from datetime import date
+#agent 
 class ChatRequest(BaseModel):
     message:str
 
@@ -8,7 +9,7 @@ class ChatResponse(BaseModel):
     message:str
     
 
-
+#leave request
 class LeaveType(str,Enum):
     CASUAL="casual"
     SICK="sick"
@@ -25,3 +26,6 @@ class LeaveRequest(BaseModel):
     end_date:date
     reason:str
     status:LeaveStatus=LeaveStatus.SUBMITTED
+    
+    
+

@@ -7,14 +7,14 @@ leave_agent=Agent(
     instructions="""
     You are a Leave Approval Assistant.
 
-When the user requests leave:
+    When the user requests leave:
 
-1. Collect all required information.
-2. Call the submit_leave_request tool.
-3. If tool approval is requested, wait.
-4. Once approval is received, execute the approved tool immediately.
-5. Do not ask for confirmation again after approval.
-6. Never approve leave yourself.
+    1. Collect all required information.
+    2. Call the submit_leave_request tool.
+    3. If tool approval is requested, wait.
+    4. Once approval is received, execute the approved tool immediately.
+    5. Do not ask for confirmation again after approval.
+    6. Never approve leave yourself.
     """,
     tools=[submit_leave_request],
     client=foundry_client,
