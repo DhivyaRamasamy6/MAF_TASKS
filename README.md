@@ -161,13 +161,13 @@ Built a **Leave Approval Agent** using **Microsoft Agent Framework** with **Tool
 ---
 
 ---
-# MCP Tool – HRMS Employee Lookup
+### 10.MCP Tool – HRMS Employee Lookup
 
-## Objective
+### Objective
 
 Build a small HRMS MCP (Model Context Protocol) server that exposes employee lookup tools and connect it to a Microsoft Agent Framework (MAF) agent.
 
-## Features
+### Features
 
 - Created an MCP server using the Python MCP SDK.
 - Connected the MCP server to a PostgreSQL database using SQLAlchemy.
