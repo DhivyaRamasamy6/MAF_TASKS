@@ -161,7 +161,7 @@ Built a **Leave Approval Agent** using **Microsoft Agent Framework** with **Tool
 ---
 
 ---
-### 10.MCP Tool – HRMS Employee Lookup
+## 10.MCP Tool – HRMS Employee Lookup
 
 ### Objective
 
@@ -177,3 +177,34 @@ Build a small HRMS MCP (Model Context Protocol) server that exposes employee loo
 - Enabled the agent to automatically discover and invoke MCP tools based on user requests.
 ---
 
+---
+## 11.Agent as a Tool
+
+### Objective
+
+Create a Manager Agent that delegates tasks to specialized agents by treating them as tools.
+
+## Features
+
+- Created a **Manager Agent** to coordinate multiple agents.
+- Implemented a **Data Agent** for retrieving factual information.
+- Implemented a **Writing Agent** for generating professional summaries and reports.
+- Configured the Manager Agent to invoke the appropriate agent based on the user's request.
+- Demonstrated the **Agent as a Tool** pattern in Microsoft Agent Framework.
+---
+
+---
+## 12. Multi-turn Conversation and Session Management
+
+### Objective
+
+Implement multi-turn conversations using Microsoft Agent Framework sessions and manage conversation history. Start with the built-in **InMemoryHistoryProvider** for development, then redesign the solution to use **Redis** or **Cosmos DB** for production.
+
+## Features
+
+- Created and managed agent session.
+- Maintained conversation context across multiple user interactions.
+- Used the built-in `InMemoryHistoryProvider` to store chat history during development.
+- Demonstrated session serialization and restoration using `to_dict()` and `from_dict()`.
+- Integrated `RedisHistoryProvider` for persistent, shared conversation history.
+---

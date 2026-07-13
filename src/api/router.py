@@ -1,17 +1,19 @@
 from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 from src.models.model import ChatRequest,ChatResponse
-from src.agents.simple_agent import agent
+from src.agents.simple_agent import agent,session
 from src.agents.order_status import assistant
 from src.agents.customer_support_agent import customer_support_agent
 from src.agents.hrms_agent import hrms_agent
+from src.agents.manager_agent import manager_agent
 router=APIRouter(tags=["Maf"])
 
 #Agent non-stream
 @router.post("/chat/Agent-Response",response_model=ChatResponse)
 async def non_stream(request:ChatRequest):
     result=await agent.run(
-        request.message
+        request.message,
+        session=session
     )
     return ChatResponse(
         message=str(result)
@@ -54,4 +56,15 @@ async def hrms(request:ChatRequest):
     )
     return ChatResponse(
         message=str(result) 
+    )
+    
+    
+    
+@router.post("/chat/Agent-as-tool",response_model=ChatResponse)
+async def manageragent(request:ChatRequest):
+    result=await manager_agent.run(
+        request.message
+    )
+    return ChatResponse(
+        message=str(result)
     )
