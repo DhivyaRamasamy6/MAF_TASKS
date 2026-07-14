@@ -42,4 +42,5 @@ async def main():
             query,session=session
         )
         print(result.text)
+        
 asyncio.run(main())

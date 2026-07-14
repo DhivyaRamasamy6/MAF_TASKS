@@ -13,18 +13,18 @@ agent=Agent(
 session=agent.create_session()
 print(session.session_id)
 history=InMemoryHistory()
-async def main():
-    while True:
-        user_msg=input("Enter input : ")
-        if user_msg.lower()=="exit":
-            break
-        history.add_message(session.session_id,"user",user_msg)
+# async def main():
+#     while True:
+#         user_msg=input("Enter input : ")
+#         if user_msg.lower()=="exit":
+#             break
+#         history.add_message(session.session_id,"user",user_msg)
         
-        result=await agent.run(
-            user_msg,session=session
-        )
-        history.add_message(session.session_id,"assistant",result.text)
-        print("Agent :",result.text)
-asyncio.run(main())
+#         result=await agent.run(
+#             user_msg,session=session
+#         )
+#         history.add_message(session.session_id,"assistant",result.text)
+#         print("Agent :",result.text)
+# asyncio.run(main())
 
-print("History \n",history.get_history(session.session_id))
+# print("History \n",history.get_history(session.session_id))

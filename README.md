@@ -208,3 +208,34 @@ Implement multi-turn conversations using Microsoft Agent Framework sessions and 
 - Demonstrated session serialization and restoration using `to_dict()` and `from_dict()`.
 - Integrated `RedisHistoryProvider` for persistent, shared conversation history.
 ---
+---
+## 13.Memory and Persistence
+
+### Objective
+
+Build a personal preference memory demo where the agent remembers the user's preferred report format and recalls it in future conversations.
+
+### Features
+
+- Created a custom `ContextProvider` for user preferences.
+- Stored the user's preferred report format in the session state.
+- Injected the stored preference before every agent run.
+- Recalled the user's preferred report format in later interactions.
+- Demonstrated session-based memory persistence.
+---
+
+---
+## 14.Context Providers
+
+### Objective
+
+Create a custom context provider that injects the user's role, department, and access level before every agent run to personalize responses.
+
+### Features
+
+- Implemented a custom `UserContextProvider`.
+- Stored user role, department, and access level in the session state.
+- Injected user context into the agent before each request.
+- Personalized responses based on the stored user context.
+- Demonstrated dynamic context injection using `before_run()` and `after_run()`.
+---
