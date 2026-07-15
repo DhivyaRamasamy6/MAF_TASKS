@@ -5,6 +5,8 @@ from agent_framework.foundry import FoundryChatClient
 from agent_framework.openai import OpenAIChatClient
 from agent_framework.ollama import OllamaChatClient
 from azure.identity import ClientSecretCredential
+
+from openai import OpenAI
 load_dotenv()
 
 
@@ -20,6 +22,26 @@ foundry_client=FoundryChatClient(
     model=os.getenv("AZURE_OPENAI_DEPLOYMENT"),
     credential=credential,
 )
+
+
+
+
+#embedding model
+class OpenAIEmbeddingGenerator:
+    def __init__(self):
+        self.client = OpenAI(
+            api_key=os.getenv("AZURE_AI_KEY"),
+            base_url=os.getenv("AZURE_AI_ENDPOINT"),
+        )
+        self.model = os.getenv("EMBEDDING_MODEL")
+
+    async def generate_raw_embeddings(self, texts: list[str]):
+        response = self.client.embeddings.create(
+            model=self.model,
+            input=texts,
+        )
+        return [item.embedding for item in response.data]
+embedding_generator = OpenAIEmbeddingGenerator()
 
 #openai
 openai_client = OpenAIChatClient(
