@@ -239,3 +239,26 @@ Create a custom context provider that injects the user's role, department, and a
 - Personalized responses based on the stored user context.
 - Demonstrated dynamic context injection using `before_run()` and `after_run()`.
 ---
+
+---
+## 15. HR Policy RAG Agent
+
+A Retrieval-Augmented Generation (RAG) application built using **Microsoft Agent Framework** and **Semantic Kernel** to provide accurate, context-aware answers to HR policy queries. The solution indexes enterprise HR policy documents, performs semantic retrieval, and generates grounded responses with document and page-level citations.
+
+### Overview
+
+The HR Policy RAG Agent enables users to query HR policy documents using natural language. Instead of relying solely on the language model's internal knowledge, the application retrieves the most relevant policy content from a vector store and uses it as contextual information to generate accurate, citation-backed responses.
+
+### Features
+
+- Developed a **Retrieval-Augmented Generation (RAG)** pipeline using **Microsoft Agent Framework** and **Semantic Kernel**
+- Indexed and retrieved information from **HR policy documents**
+- Implemented **hybrid document chunking** using section-based splitting with size-limited overlapping chunks
+- Integrated **Azure OpenAI `text-embedding-3-small`** for automatic embedding generation
+- Performed **semantic similarity search** for context-aware document retrieval
+- Generated responses with **document name and page-level citations**
+- Integrated the retrieval pipeline as a reusable **Microsoft Agent Framework tool**
+- Supported multiple vector store backends:
+  - **InMemoryCollection** for local development and testing
+  - **ChromaDB** for persistent local vector storage
+  - Studied the integration and migration approach for **Azure AI Search** 

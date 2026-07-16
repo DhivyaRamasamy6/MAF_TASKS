@@ -8,5 +8,7 @@ agent-framework-ollama
 sqlalchemy
 psycopg2-binary
 mcp
-semantic_kernel
+# semantic_kernel
 pypdf
+numpy
+chromadb
