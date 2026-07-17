@@ -6,7 +6,7 @@ logger=get_logger(__name__)
 async def search_hr_policy(query:str)->str:
     """Retrieve HR Policy documents."""
     logger.info("HRpolicy tool invoked")
-    chunks=await retrieve_hr_policy(query,backend="chroma",top=5,)
+    chunks=await retrieve_hr_policy(query,backend="in_memory",top=5,)
     if not chunks:
         return "No relevant chunks found."
     response=[]

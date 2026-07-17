@@ -1,4 +1,4 @@
-from agent_framework import Agent
+from agent_framework import Agent,InMemoryHistoryProvider
 import asyncio
 from src.config.settings import foundry_client
 from src.tools.rag_tool import search_hr_policy
@@ -26,6 +26,11 @@ agent=Agent(
     and document name in your answer.
     """,
     tools=[search_hr_policy],
+    context_providers=[
+        InMemoryHistoryProvider(
+            "memory",
+            load_messages=True
+        )]
 )
 
 async def main(): 
@@ -33,7 +38,7 @@ async def main():
     while True:
         await ingest_hr_policy(
             pdf_path=PDF,
-            backend="chroma",
+            backend="in_memory",
         )
 
         query=input("query:")

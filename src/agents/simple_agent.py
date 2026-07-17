@@ -3,16 +3,29 @@ import asyncio
 import os
 from src.config.settings import *
 from src.memory.custom_mem import InMemoryHistory
-
+from src.middleware.agent_middleware import RequestLoggingAgentMiddleware
 agent=Agent(
     name="HelloAgent",
     instructions="You are a friendly assistant.Keep your answers brief.",
+    middleware=[RequestLoggingAgentMiddleware()],
     client=foundry_client, 
 
 )
 session=agent.create_session()
-print(session.session_id)
-history=InMemoryHistory()
+# print("Session ID:" ,session.session_id)
+# async def main():
+#     while True:
+#         query=input("query:")
+#         if query.lower()=="exit":
+#             break
+#         response=await agent.run(
+#             query,
+#             session=session,
+#         )
+#         print("Agent:",response)
+# asyncio.run(main())
+
+# history=InMemoryHistory()
 # async def main():
 #     while True:
 #         user_msg=input("Enter input : ")
