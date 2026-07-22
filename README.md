@@ -262,3 +262,23 @@ The HR Policy RAG Agent enables users to query HR policy documents using natural
   - **InMemoryCollection** for local development and testing
   - **ChromaDB** for persistent local vector storage
   - Studied the integration and migration approach for **Azure AI Search** 
+
+## 16. Middleware
+
+Implemented middleware examples using the **Microsoft Agent Framework (MAF)** to demonstrate request validation, logging, security, and prompt processing.
+
+### Overview
+
+The middleware examples show how to intercept requests before and after agent execution to perform validation, logging, and prompt modification.
+
+### Features
+
+- Implemented **Request Logging Middleware** to log the **Request ID** and **User ID**.
+- Implemented **Tool Logging Middleware** to log the tool selected and executed by the agent.
+- Implemented **Token Logging Middleware** to log token usage for both streaming and non-streaming responses.
+- Implemented **Finance Validation Middleware** to allow finance-related queries only for users with the **Finance** role.
+- Implemented **PII Masking Chat Middleware** to mask sensitive information such as **PAN** and **Aadhaar** numbers before sending the prompt to the language model.
+- Implemented **SafeToolMiddleware** to handle tool failure and it return safe response indtead of crashing agent.
+- Implemented **ToolCallRateLimitingMiddleware** to handle the tool call request limits based on the guardrails and termination conditions.
+- Learned the use of **Agent Middleware** for request validation, auditing, and response processing.
+- Learned the use of **Chat Middleware** for prompt preprocessing and sensitive data masking.

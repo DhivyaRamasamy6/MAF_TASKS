@@ -38,29 +38,29 @@ class UserPreferenceMemoryProvider(ContextProvider):
                 elif "word" in text_lower:
                     state["report_format"]="word"
             
-agent=Agent(
-    name="PreferenceAgent",
-    client=foundry_client,
-    instructions="""
-    You are a context-aware assistant.
+# agent=Agent(
+#     name="PreferenceAgent",
+#     client=foundry_client,
+#     instructions="""
+#     You are a context-aware assistant.
 
-    Only answer questions using the information provided by the context providers.
+#     Only answer questions using the information provided by the context providers.
 
-    Do not use your general knowledge or make assumptions.
-""",
-    context_providers=[UserPreferenceMemoryProvider()],
-)
-session = agent.create_session()
-async def main():
+#     Do not use your general knowledge or make assumptions.
+# """,
+#     context_providers=[UserPreferenceMemoryProvider()],
+# )
+# session = agent.create_session()
+# async def main():
    
-    result = await agent.run("What is AI?", session=session)
-    print(f"Agent: {result}\n")
+#     result = await agent.run("What is AI?", session=session)
+#     print(f"Agent: {result}\n")
 
-    #user preference
-    result = await agent.run("My preferred report format is PDF.", session=session)
-    print(f"Agent: {result}\n")
+#     #user preference
+#     result = await agent.run("My preferred report format is PDF.", session=session)
+#     print(f"Agent: {result}\n")
 
     
-    provider_state = session.state.get("user_preferences", {})
-    print(f"[Session State] Stored user preference: {provider_state.get('report_format')}")
-asyncio.run(main())
+#     provider_state = session.state.get("user_preferences", {})
+#     print(f"[Session State] Stored user preference: {provider_state.get('report_format')}")
+# asyncio.run(main())

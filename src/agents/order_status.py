@@ -1,7 +1,7 @@
 from agent_framework import Agent
 from src.config.settings import *
 from src.tools.order_status import get_order_status
-from src.middleware.function_middleware import  tool_logging_middleware 
+from src.middleware.function_middleware import  tool_logging_middleware ,ToolCallRateLimitingMiddleware
 from src.middleware.chat_middleware import TokenLoggingMiddleware
 assistant=Agent(
     name="Assistant",
@@ -11,5 +11,5 @@ assistant=Agent(
     """,
     client=foundry_client,
     tools=[get_order_status],
-    middleware=[tool_logging_middleware,TokenLoggingMiddleware()],
+    middleware=[tool_logging_middleware,TokenLoggingMiddleware(),ToolCallRateLimitingMiddleware()],
 )

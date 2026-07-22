@@ -12,3 +12,4 @@ mcp
 pypdf
 numpy
 chromadb
+cryptography

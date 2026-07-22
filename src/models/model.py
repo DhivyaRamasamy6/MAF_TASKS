@@ -29,3 +29,9 @@ class LeaveRequest(BaseModel):
     
     
 
+#for finance role checking
+class RequestClassification(BaseModel):
+    category: str
+    role: str
+    
+
