@@ -2,7 +2,7 @@
 import os
 from dotenv import load_dotenv
 from agent_framework.foundry import FoundryChatClient
-from agent_framework.openai import OpenAIChatClient
+from agent_framework.openai import OpenAIChatClient,OpenAIChatCompletionClient
 from agent_framework.ollama import OllamaChatClient
 from azure.identity import ClientSecretCredential
 from openai import AsyncOpenAI
@@ -66,6 +66,11 @@ embedding_generator = OpenAIEmbeddingGenerator()
 
 #openai
 openai_client = OpenAIChatClient(
+    base_url=os.getenv("AZURE_AI_ENDPOINT"),
+    api_key=os.getenv("AZURE_AI_KEY"),
+    model=os.getenv("AZURE_OPENAI_DEPLOYMENT"),
+)
+openai_completion_client = OpenAIChatCompletionClient(
     base_url=os.getenv("AZURE_AI_ENDPOINT"),
     api_key=os.getenv("AZURE_AI_KEY"),
     model=os.getenv("AZURE_OPENAI_DEPLOYMENT"),

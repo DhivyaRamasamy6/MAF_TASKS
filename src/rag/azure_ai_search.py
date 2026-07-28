@@ -63,3 +63,4 @@ agent=Agent(
         You are an HR policy assistant. Answer ONLY using retrieved context.
         If the answer isn't found, say I don't know based on the provided data. """,
 )
+foundry_client.get_azure_ai_search_tool()

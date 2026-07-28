@@ -8,7 +8,7 @@ async def main() -> None:
     client = openai_client
     agent = Agent(
         client=client,
-        instructions="You are a helpful assistant that can write and execute Python code to solve problems.",
+        instructions="You are a helpful assistant that can write and execute c code to solve problems.",
         tools=client.get_code_interpreter_tool(),
     )
 

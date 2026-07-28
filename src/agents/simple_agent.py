@@ -11,40 +11,49 @@ from src.common.logger import get_logger
 from src.tools.weather import get_weather
 from src.tools.calculator import calculator
 from src.middleware.function_middleware import SafeToolMiddleware,ToolCallRateLimitingMiddleware
-
+from src.tools.github_tool import github_mcp
 logger=get_logger(__name__)
+
 agent=Agent(
     name="HelloAgent",
-    instructions=
-    """
-    You are a friendly AI assistant.Use tool when need.
-    Rules:
-    - Keep responses brief and accurate.
-    - Answer only questions the authenticated user is authorized to access.
-    - Never reveal or reconstruct masked or encrypted PII.
-    - If PII is masked, answer using the sanitized input.
-   """,
-   tools=[get_weather,calculator],
-    middleware=[ToolCallRateLimitingMiddleware(),SafeToolMiddleware(),RequestLoggingAgentMiddleware(),TokenLoggingMiddleware(),pii_masking_middlewalre],
-    client=foundry_client,
+    instructions="""
+    You are a Customer Support Assistant.
+
+    Keep your responses brief and professional.
+
+    Always use the appropriate tool:
+
+    - Use get_weather to retrieve weather information.
+    - Use calculator to retrieve math information.
+    - Use the github_mcp to search repositories, read files, check issues, and perform GitHub operations.
+
+        """,
    
+    tools= [
+    get_weather,
+    calculator,
+    github_mcp(),
+    ],
+    client=foundry_client,
+
 )
+# middleware=[ToolCallRateLimitingMiddleware(),RequestLoggingAgentMiddleware(),TokenLoggingMiddleware()],
 session=agent.create_session()
 print("Session ID:" ,session.session_id)
-# async def main():
-#     while True:
-#         query=input("query:")
-#         if query.lower()=="exit":
-#             break
-     
-#         response=await agent.run(
-#             query,
-#             session=session,
-           
-#         )
+async def main():
+    while True:
+        query=input("query:")
+        if query.lower()=="exit":
+            break
         
-#         print("Agent:",response)
-# asyncio.run(main())
+        response=await agent.run(
+            query,
+            session=session,
+           
+        )
+        
+        print("Agent:",response)
+asyncio.run(main())
 
 # history=InMemoryHistory()
 # async def main():
