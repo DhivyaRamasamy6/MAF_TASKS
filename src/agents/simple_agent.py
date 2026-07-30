@@ -38,9 +38,20 @@ agent=Agent(
 
 )
 # middleware=[ToolCallRateLimitingMiddleware(),RequestLoggingAgentMiddleware(),TokenLoggingMiddleware()],
-session=agent.create_session()
-print("Session ID:" ,session.session_id)
+# session=agent.create_session()
+
+# print("Session ID:" ,session.session_id)
+
 async def main():
+    
+    conversation = await foundry_client.client.conversations.create()
+
+    
+    session = agent.get_session(
+        service_session_id=conversation.id
+    )
+    print("Session ID: ",session.session_id)
+    print("Session ID: ",session.service_session_id)
     while True:
         query=input("query:")
         if query.lower()=="exit":

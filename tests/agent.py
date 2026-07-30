@@ -1,10 +1,20 @@
 from agent_framework import Agent
 import asyncio
 import os
+from src.memory.db_stroage.history_provider import PostgreHistoryProvider
+from src.memory.db_stroage.db_service import ConversationDB
 from src.config.settings import *
 # from src.common.logger import get_logger
 # logger=get_logger(__name__)
 from src.tools.hrms_tool import hrms_tool
+db=ConversationDB()
+history_provider=PostgreHistoryProvider(db)
+agent=Agent(
+    name="HelloAgent",
+    instructions="""You are a helpful assistant.Keep your answers brief.""",
+    client=foundry_client,
+    context_providers=[history_provider],
+)
 agent1=Agent(
     name="HelloAgent",
     instructions="""You are a friendly assistant.Keep your answers brief.
@@ -47,13 +57,15 @@ agent2=Agent(
     tools=hrms_tool,
   
 )
-session=agent2.create_session()
+# session=agent.create_session()
+session=agent.get_session(session_id="d59db7b3-679e-4a3d-bb35-afc768c7d80a",service_session_id=None)
+print("Session Id: ",session.session_id)
 async def main():
     while True:
         query=input("query : ",)
         if query.lower=="exit":
             break
-        result=await agent2.run(
+        result=await agent.run(
                         query,session=session
                     )
         print(result)
